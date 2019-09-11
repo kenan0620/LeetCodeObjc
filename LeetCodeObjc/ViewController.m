@@ -22,8 +22,8 @@
 }
 
 - (void)leetcode1{
-    NSArray *nums = @[@"2",@"7",@"11",@"15"];
-    int targetr = 22;
+    NSArray *nums = @[@"2",@"7",@"11",@"15",@"22",@"27",@"31",@"35"];
+    int targetr = 96;
     if (nums.count<2) {
         NSLog(@"小于二");
         return;
@@ -51,7 +51,12 @@
         if ([numsDic objectForKey:[NSString stringWithFormat:@"%d",reduce]]) {
             int index =  [numsDic[[NSString stringWithFormat:@"%d",reduce]] intValue];
             
-            NSLog(@"存在一对数据 数组下标为%@,数组值为%@,数组下标为%d,数组值为%@ 的和为目标值%d",numsDic[[NSString stringWithFormat:@"%d",reduce]],nums[index],i,org,targetr);
+            if (index != i) {
+                NSLog(@"存在一对数据 数组下标为%@,数组值为%@,数组下标为%d,数组值为%@ 的和为目标值%d",numsDic[[NSString stringWithFormat:@"%d",reduce]],nums[index],i,org,targetr);
+            }else{
+                NSLog(@"不存在");
+            }
+            
             return;
         }
     }
